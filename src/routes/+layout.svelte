@@ -2,8 +2,8 @@
 	import "../app.postcss";
 </script>
 
-<div class="app">
-	<main>
+<main class="flex justify-center">
+	<article class="prose">
 		<slot />
-	</main>
-</div>
+	</article>
+</main>
