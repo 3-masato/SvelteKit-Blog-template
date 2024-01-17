@@ -6,7 +6,6 @@ const client = createClient({
 	apiKey: MICROCMS_API_KEY
 });
 
-//型定義
 export type Blog = {
 	id: string;
 	createdAt: string;
@@ -24,7 +23,6 @@ export type BlogResponse = {
 	contents: Blog[];
 };
 
-//APIの呼び出し
 export const getList = async (queries?: MicroCMSQueries) => {
 	return await client.get<BlogResponse>({ endpoint: "blogs", queries });
 };

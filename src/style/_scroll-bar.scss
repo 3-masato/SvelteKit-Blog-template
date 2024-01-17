@@ -1,0 +1,36 @@
+$scroll-bar-size: 16px;
+
+@mixin scroll-bar($track, $thumb, $hover-thumb, $active-thumb) {
+	::-webkit-scrollbar {
+		height: $scroll-bar-size;
+		width: $scroll-bar-size;
+	}
+
+	::-webkit-scrollbar-track {
+		background: $track;
+	}
+
+	::-webkit-scrollbar-thumb {
+		width: 8px;
+		background-color: $thumb;
+		border: 1px solid transparent;
+		background-clip: padding-box;
+		min-height: 32px;
+		min-width: 32px;
+
+		&:hover {
+			background: $hover-thumb;
+		}
+
+		&:active {
+			background: $active-thumb;
+		}
+	}
+
+	@supports (scrollbar-width: auto) {
+		* {
+			scrollbar-width: auto;
+			scrollbar-color: $thumb $track;
+		}
+	}
+}

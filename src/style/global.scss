@@ -1,0 +1,38 @@
+@use "./scroll-bar" as *;
+
+:root {
+	&:not(.dark) {
+		color-scheme: light;
+		@include scroll-bar(#d1d6d8, #b1b6b9, #979b9d, #7e8282);
+
+		body {
+			@apply bg-slate-50;
+		}
+	}
+	&.dark {
+		color-scheme: dark;
+		@include scroll-bar(#50514f, #666968, #7e8282, #979b9d);
+
+		body {
+			@apply bg-zinc-950;
+		}
+	}
+}
+
+#app {
+	display: grid;
+	min-height: 100vh;
+	grid-template: "header" auto "main" 1fr "footer" auto / 100%;
+}
+
+#header {
+	grid-area: header;
+}
+
+#main {
+	grid-area: main;
+}
+
+#footer {
+	grid-area: footer;
+}

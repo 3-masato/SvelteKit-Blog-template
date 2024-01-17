@@ -9,7 +9,19 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"moduleResolution": "bundler"
+		"moduleResolution": "bundler",
+		"module": "ESNext",
+		"lib": ["ESNext", "es2023", "DOM"],
+		"target": "ESNext",
+
+		"paths": {
+			"$lib": ["./src/lib"],
+			"$lib/*": ["./src/lib/*"],
+			"$components": ["./src/lib/components"],
+			"$components/*": ["./src/lib/components/*"],
+			"$config": ["./src/config"],
+			"$config/*": ["./src/config/*"]
+		}
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//
