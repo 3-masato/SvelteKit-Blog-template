@@ -1,13 +1,14 @@
 <script lang="ts">
+	import BlogCard from "$components/BlogCard";
 	import type { PageData } from "./$types";
 	export let data: PageData;
 </script>
 
 <section>
 	<h1>ブログ</h1>
-	<ul>
+	<div>
 		{#each data.contents as content}
-			<li><a href={content.id}>{content.title}</a></li>
+			<BlogCard {content} />
 		{/each}
-	</ul>
+	</div>
 </section>

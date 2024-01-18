@@ -1,36 +1,25 @@
 import { MICROCMS_API_KEY, MICROCMS_SERVICE_DOMAIN } from "$env/static/private";
-import { createClient, type MicroCMSImage, type MicroCMSQueries } from "microcms-js-sdk";
+import type { BlogContentRaw, BlogResponse } from "$types/blog";
+import { error } from "@sveltejs/kit";
+import { createClient, type MicroCMSQueries } from "microcms-js-sdk";
 
 const client = createClient({
 	serviceDomain: MICROCMS_SERVICE_DOMAIN,
 	apiKey: MICROCMS_API_KEY
 });
 
-export type Blog = {
-	id: string;
-	createdAt: string;
-	updatedAt: string;
-	publishedAt: string;
-	revisedAt: string;
-	title: string;
-	content: string;
-	eyecatch?: MicroCMSImage;
-};
-export type BlogResponse = {
-	totalCount: number;
-	offset: number;
-	limit: number;
-	contents: Blog[];
-};
-
 export const getList = async (queries?: MicroCMSQueries) => {
 	return await client.get<BlogResponse>({ endpoint: "blogs", queries });
 };
 
 export const getDetail = async (contentId: string, queries?: MicroCMSQueries) => {
-	return await client.getListDetail<Blog>({
-		endpoint: "blogs",
-		contentId,
-		queries
-	});
+	try {
+		return await client.getListDetail<BlogContentRaw>({
+			endpoint: "blogs",
+			contentId,
+			queries
+		});
+	} catch (e) {
+		throw error(404, { message: "Not found" });
+	}
 };

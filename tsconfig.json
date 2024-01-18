@@ -12,19 +12,8 @@
 		"moduleResolution": "bundler",
 		"module": "ESNext",
 		"lib": ["ESNext", "es2023", "DOM"],
-		"target": "ESNext",
-
-		"paths": {
-			"$lib": ["./src/lib"],
-			"$lib/*": ["./src/lib/*"],
-			"$components": ["./src/lib/components"],
-			"$components/*": ["./src/lib/components/*"],
-			"$config": ["./src/config"],
-			"$config/*": ["./src/config/*"]
-		}
-	}
-	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
-	//
-	// If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes
-	// from the referenced tsconfig.json - TypeScript does not merge them in
+		"target": "ESNext"
+	},
+	"include": ["src/**/*", ".svelte-kit/ambient.d.ts"],
+	"exclude": ["node_modules"]
 }

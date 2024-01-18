@@ -10,7 +10,7 @@
 	<Header></Header>
 
 	<main id="main" class="mb-28 flex justify-center">
-		<article class="prose prose-base prose-zinc px-4 py-8 dark:prose-invert">
+		<article class="prose prose-base prose-zinc w-full max-w-[48rem] px-4 py-12 dark:prose-invert">
 			<slot />
 		</article>
 	</main>

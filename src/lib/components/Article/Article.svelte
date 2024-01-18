@@ -1,11 +1,13 @@
 <script lang="ts">
-	import type { Blog } from "$lib/microcms";
+	import type { BlogContent } from "$types/blog";
 
-	export let data: Blog;
+	export let data: BlogContent;
 </script>
 
 <article>
 	<h1>{data.title}</h1>
-	<img src={data.eyecatch?.url} alt="blog eyecatch" />
-	<div>{@html data.content}</div>
+	{#if data.eyecatch}
+		<img src={data.eyecatch.url} alt="blog eyecatch" />
+	{/if}
+	<div>{@html data.body}</div>
 </article>

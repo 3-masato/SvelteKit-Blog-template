@@ -1,0 +1,44 @@
+<script lang="ts">
+	import NoImage from "$lib/assets/noimage.webp";
+	import type { BlogContent } from "$types/blog";
+
+	export let content: BlogContent;
+</script>
+
+<a
+	class="not-prose group flex w-full rounded-sm p-4 transition-colors ease-out hover:bg-gray-200 hover:dark:bg-zinc-700"
+	href={`${content.id}`}
+>
+	<div class="h-full w-full sm:flex">
+		<div
+			class="relative aspect-video w-full flex-shrink-0 overflow-hidden rounded-sm sm:h-44 sm:w-72"
+		>
+			<img
+				class="absolute start-0 top-0 h-full w-full rounded-sm object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+				src={content.eyecatch?.url ?? NoImage}
+				alt={content.title}
+			/>
+		</div>
+
+		<div class="mt-4 grow px-4 sm:mt-0">
+			<h3 class="text-xl font-bold">
+				{content.title}
+			</h3>
+
+			<div class="mt-4 flex gap-[0.5rem] text-xs text-gray-500 dark:text-gray-500">
+				<span
+					>公開日時：<time datetime={content.raw.publishedAt} itemprop="datePublished"
+						>{content.date.publishedDate}</time
+					></span
+				>
+				{#if content.date.isRevised}
+					<span
+						>更新日時：<time datetime={content.raw.revisedAt} itemprop="dateRevised"
+							>{content.date.revisedDate}</time
+						></span
+					>
+				{/if}
+			</div>
+		</div>
+	</div>
+</a>

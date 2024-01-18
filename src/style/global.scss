@@ -9,6 +9,7 @@
 			@apply bg-slate-50;
 		}
 	}
+
 	&.dark {
 		color-scheme: dark;
 		@include scroll-bar(#50514f, #666968, #7e8282, #979b9d);
