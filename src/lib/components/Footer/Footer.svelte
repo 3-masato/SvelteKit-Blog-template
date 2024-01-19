@@ -10,9 +10,9 @@
 
 <footer
 	id="footer"
-	class="mx-auto mt-auto grid w-full place-items-center bg-slate-200 px-4 py-8 dark:bg-neutral-900 sm:px-6 lg:px-8"
+	class="mt-auto grid w-full place-items-center bg-slate-200 px-4 py-8 dark:bg-neutral-900 sm:px-6 lg:px-8"
 >
-	<div class="grid h-4 place-items-center">
+	<div class="mx-auto grid h-4 w-full max-w-screen-xl place-items-center">
 		<div class="text-xs">
 			<p class="text-neutral-500 dark:text-neutral-400">
 				&copy; <span itemprop="copyrightYear">{copyrightYear}</span>

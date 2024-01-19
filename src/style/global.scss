@@ -1,6 +1,12 @@
 @use "./scroll-bar" as *;
 
+:target {
+	scroll-margin-top: 6rem;
+}
+
 :root {
+	scroll-behavior: smooth;
+
 	&:not(.dark) {
 		color-scheme: light;
 		@include scroll-bar(#d1d6d8, #b1b6b9, #979b9d, #7e8282);

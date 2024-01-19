@@ -25,6 +25,15 @@ export type FormatedDate = {
 
 /* ================ */
 
+export type TocHeading = {
+	level: 1 | 2 | 3 | 4 | 5 | 6;
+	title: string;
+	slug: string;
+	child?: TocHeading[];
+};
+
+/* ================ */
+
 export type BlogContent = {
 	raw: BlogContentRaw;
 	date: FormatedDate;
@@ -33,4 +42,5 @@ export type BlogContent = {
 	body: BlogContentRaw["body"];
 	eyecatch: BlogContentRaw["eyecatch"];
 	category: BlogContentRaw["category"];
+	toc: TocHeading[];
 };
