@@ -11,7 +11,7 @@
 		"strict": true,
 		"moduleResolution": "bundler",
 		"module": "ESNext",
-		"lib": ["ESNext", "es2023", "DOM"],
+		"lib": ["ESNext", "es2023", "DOM", "DOM.Iterable"],
 		"target": "ESNext"
 	},
 	"include": ["src/**/*", ".svelte-kit/ambient.d.ts"],
