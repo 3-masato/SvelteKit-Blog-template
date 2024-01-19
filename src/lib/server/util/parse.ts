@@ -1,3 +1,4 @@
+import { parseToc } from "$server/util/toc";
 import type { BlogContent, BlogContentRaw } from "$types/blog";
 import { differenceInSeconds } from "date-fns";
 import { formatDate } from "./date";
@@ -8,6 +9,7 @@ export function parseBlogContent(blog: BlogContentRaw): BlogContent {
 	const publishedDate = formatDate(blog.publishedAt);
 	const revisedDate = formatDate(blog.revisedAt);
 	const isRevised = differenceInSeconds(new Date(blog.publishedAt), new Date(blog.revisedAt)) > 0;
+	const toc = parseToc(blog.body);
 
 	return {
 		raw: blog,
@@ -22,6 +24,7 @@ export function parseBlogContent(blog: BlogContentRaw): BlogContent {
 		title: blog.title,
 		body: blog.body,
 		eyecatch: blog.eyecatch,
-		category: blog.category
+		category: blog.category,
+		toc
 	};
 }
