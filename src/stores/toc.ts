@@ -1,43 +1,30 @@
 import { writable } from "svelte/store";
 
 export const tocStore = (() => {
-	let data = new Map<string, number>();
-	const { subscribe, update, set } = writable<Map<string, number>>(data);
+	type Heading = string;
 
-	const addTOC = (heading: string) => {
-		update((visivle) => {
-			if (visivle) {
-				if (!visivle) {
-					visivle = new Map<string, number>();
-				}
-				data.set(heading, (visivle.get(heading) || 0) + 1);
-			}
-			return visivle;
-		});
+	const data = new Map<Heading, number>();
+	const { subscribe, set } = writable(data);
+
+	const addTOC = (heading: Heading) => {
+		data.set(heading, (data.get(heading) || 0) + 1);
+		set(new Map(data));
 	};
 
-	const delTOC = (heading: string) => {
-		update((visivle) => {
-			if (visivle) {
-				const count = data.get(heading);
-				if (count) {
-					if (count - 1 === 0) {
-						visivle.delete(heading);
-					} else {
-						visivle.set(heading, count - 1);
-					}
-				}
+	const delTOC = (heading: Heading) => {
+		const count = data.get(heading);
+		if (count) {
+			if (count === 1) {
+				data.delete(heading);
+			} else {
+				data.set(heading, count - 1);
 			}
-			return visivle;
-		});
+			set(new Map(data));
+		}
 	};
 
 	return {
 		subscribe,
-		init: () => {
-			data = new Map<string, number>();
-			set(data);
-		},
 		addTOC,
 		delTOC
 	};
