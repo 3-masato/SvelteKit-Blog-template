@@ -4,7 +4,8 @@ import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {
 	const list = await getList();
-	const contents = list.contents.map(parseBlogContent);
+	const contents = await Promise.all(list.contents.map(parseBlogContent));
+
 	return {
 		...list,
 		contents

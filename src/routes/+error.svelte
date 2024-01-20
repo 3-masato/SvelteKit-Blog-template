@@ -9,7 +9,7 @@
 			<span class="inline-block text-9xl font-bold">{$page.status}</span>
 			<span class="inline-block text-5xl">{$page.error?.message}</span>
 		</div>
-		<a href="/" class="text-xl no-underline underline-offset-2 hover:underline" target="_self">
+		<a href="/" class="text-xl no-underline underline-offset-2 hover:underline">
 			{"トップへ戻る"}
 		</a>
 	</div>

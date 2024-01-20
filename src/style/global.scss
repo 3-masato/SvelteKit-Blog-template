@@ -1,4 +1,5 @@
 @use "./scroll-bar" as *;
+@import "./code";
 
 :target {
 	scroll-margin-top: 6rem;

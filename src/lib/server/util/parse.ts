@@ -1,15 +1,21 @@
-import { parseToc } from "$server/util/toc";
+import { getTocHeadings } from "$server/util/toc";
 import type { BlogContent, BlogContentRaw } from "$types/blog";
+import * as cheerio from "cheerio";
 import { differenceInSeconds } from "date-fns";
 import { formatDate } from "./date";
+import { applySyntaxHighlighting } from "./highlighter";
 
-export function parseBlogContent(blog: BlogContentRaw): BlogContent {
+export async function parseBlogContent(blog: BlogContentRaw): Promise<BlogContent> {
 	const createdDate = formatDate(blog.createdAt);
 	const updatedDate = formatDate(blog.updatedAt);
 	const publishedDate = formatDate(blog.publishedAt);
 	const revisedDate = formatDate(blog.revisedAt);
 	const isRevised = differenceInSeconds(new Date(blog.publishedAt), new Date(blog.revisedAt)) > 0;
-	const toc = parseToc(blog.body);
+
+	const $ = cheerio.load(blog.body);
+
+	const body = await applySyntaxHighlighting($);
+	const headingsArray = getTocHeadings($);
 
 	return {
 		raw: blog,
@@ -22,9 +28,9 @@ export function parseBlogContent(blog: BlogContentRaw): BlogContent {
 		},
 		id: blog.id,
 		title: blog.title,
-		body: blog.body,
+		body: body,
 		eyecatch: blog.eyecatch,
 		category: blog.category,
-		toc
+		toc: headingsArray
 	};
 }

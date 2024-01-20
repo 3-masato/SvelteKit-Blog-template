@@ -1,0 +1,17 @@
+pre.shiki {
+	code {
+		@apply flex flex-col;
+	}
+
+	.line {
+		@apply flex h-6 items-center justify-start;
+	}
+
+	.line-gutter {
+		@apply mr-3 inline-block h-full w-8 select-none border-r border-gray-400 pr-2 text-right text-gray-300;
+	}
+
+	.line-content {
+		@apply inline-block;
+	}
+}

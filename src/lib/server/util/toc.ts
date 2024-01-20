@@ -1,6 +1,5 @@
 import type { TocHeading } from "$types/blog";
-
-import * as cheerio from "cheerio";
+import type { CheerioAPI } from "cheerio";
 
 const pushHeading = (headings: TocHeading[], newHeading: TocHeading): void => {
 	if (headings.length === 0 || newHeading.level <= headings[headings.length - 1].level) {
@@ -13,9 +12,7 @@ const pushHeading = (headings: TocHeading[], newHeading: TocHeading): void => {
 	pushHeading(last.child, newHeading);
 };
 
-export function parseToc(body: string): TocHeading[] {
-	const $ = cheerio.load(body);
-
+export const getTocHeadings = ($: CheerioAPI): TocHeading[] => {
 	const headingsArray: TocHeading[] = [];
 	const headings = $("h2, h3");
 	const headingReg = /^h([2-3])$/i;
@@ -40,4 +37,4 @@ export function parseToc(body: string): TocHeading[] {
 	}
 
 	return headingsArray;
-}
+};
