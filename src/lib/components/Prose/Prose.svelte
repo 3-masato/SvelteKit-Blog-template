@@ -1,3 +1,3 @@
-<section class="prose prose-base prose-zinc w-full max-w-full dark:prose-invert">
+<section class="prose prose-base prose-zinc w-full max-w-screen-md px-4 dark:prose-invert">
 	<slot />
 </section>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Article from "$components/Article";
-	import Prose from "$components/Prose";
+	import Main from "$components/Main";
 	import PostToc from "$components/TableOfContent";
 	import type { PageData } from "./$types";
 	export let data: PageData;
@@ -11,11 +11,11 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<Prose>
+<Main>
 	<Article {data}></Article>
-</Prose>
-<aside class="hidden h-full xl:block" data-position="right">
-	<div class="sticky top-20">
-		<PostToc toc={data.toc} />
-	</div>
-</aside>
+	<svelte:fragment slot="right">
+		<div class="sticky top-20">
+			<PostToc toc={data.toc} />
+		</div>
+	</svelte:fragment>
+</Main>

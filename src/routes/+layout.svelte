@@ -4,7 +4,6 @@
 
 	import Footer from "$components/Footer";
 	import Header from "$components/Header";
-	import Main from "$components/Main";
 	import Progress from "$components/Progress";
 </script>
 
@@ -13,9 +12,7 @@
 <div id="app">
 	<Header></Header>
 
-	<Main>
-		<slot />
-	</Main>
+	<slot />
 
 	<Footer></Footer>
 </div>
