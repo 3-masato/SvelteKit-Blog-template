@@ -1,5 +1,4 @@
 <script>
-	import Prose from "$components/Prose";
 </script>
 
 <main id="main" class="mx-auto mb-32 mt-12 flex h-full w-full justify-center">
@@ -8,9 +7,9 @@
 			<slot name="left" />
 		{/if}
 	</aside>
-	<Prose>
+	<section class="prose prose-base prose-zinc w-full max-w-screen-md px-4 dark:prose-invert">
 		<slot />
-	</Prose>
+	</section>
 	<aside class="max-w-screen-md flex-1">
 		{#if $$slots.right}
 			<slot name="right" />
