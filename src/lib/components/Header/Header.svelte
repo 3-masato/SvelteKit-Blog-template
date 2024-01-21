@@ -1,4 +1,5 @@
 <script>
+	import SearchForm from "$components/SearchForm/SearchForm.svelte";
 	import { siteConfig } from "$config/site";
 </script>
 
@@ -9,11 +10,12 @@
 	<div
 		class="mx-auto flex w-full max-w-screen-xl basis-full flex-wrap items-center px-4 sm:px-6 lg:px-8"
 	>
-		<div class="flex items-center justify-between">
+		<div class="me-5 md:me-8">
 			<a class="flex items-center justify-start gap-2" href="/">
 				<div class="text-xl font-bold">{siteConfig.title}</div>
 			</a>
 		</div>
+		<SearchForm />
 		<nav class=""></nav>
 	</div>
 </header>
