@@ -1,11 +1,11 @@
 import { getTocHeadings } from "$server/util/toc";
-import type { BlogContent, BlogContentRaw } from "$types/blog";
+import type { Blog, BlogContentRaw } from "$types/blog";
 import * as cheerio from "cheerio";
 import { differenceInSeconds } from "date-fns";
 import { formatDate } from "./date";
 import { applySyntaxHighlighting } from "./highlighter";
 
-export async function parseBlogContent(blog: BlogContentRaw): Promise<BlogContent> {
+export async function parseBlogContent(blog: BlogContentRaw): Promise<Blog> {
 	const createdDate = formatDate(blog.createdAt);
 	const updatedDate = formatDate(blog.updatedAt);
 	const publishedDate = formatDate(blog.publishedAt);

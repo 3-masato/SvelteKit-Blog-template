@@ -1,5 +1,5 @@
 import { MICROCMS_API_KEY, MICROCMS_SERVICE_DOMAIN } from "$env/static/private";
-import type { BlogContentRaw, BlogResponse } from "$types/blog";
+import type { BlogContent, BlogResponse } from "$types/blog";
 import { error } from "@sveltejs/kit";
 import { createClient, type MicroCMSQueries } from "microcms-js-sdk";
 
@@ -14,7 +14,7 @@ export const getList = async (queries?: MicroCMSQueries) => {
 
 export const getDetail = async (contentId: string, queries?: MicroCMSQueries) => {
 	try {
-		return await client.getListDetail<BlogContentRaw>({
+		return await client.getListDetail<BlogContent>({
 			endpoint: "blogs",
 			contentId,
 			queries

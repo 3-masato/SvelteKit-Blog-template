@@ -11,8 +11,6 @@
 
 <div id="app">
 	<Header></Header>
-
 	<slot />
-
 	<Footer></Footer>
 </div>

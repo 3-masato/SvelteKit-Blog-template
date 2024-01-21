@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Tag from "$components/Tag";
 	import NoImage from "$lib/assets/noimage.webp";
-	import type { BlogContent } from "$types/blog";
+	import type { Blog } from "$types/blog";
 
-	export let content: BlogContent;
+	export let content: Blog;
 </script>
 
 <a

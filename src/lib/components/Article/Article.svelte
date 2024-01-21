@@ -3,10 +3,10 @@
 	import NoImage from "$lib/assets/noimage.webp";
 	import { tocAttr } from "$lib/util/toc";
 	import { tocStore } from "$stores/toc";
-	import type { BlogContent } from "$types/blog";
+	import type { Blog } from "$types/blog";
 	import { onMount } from "svelte";
 
-	export let content: BlogContent;
+	export let content: Blog;
 
 	let observer: IntersectionObserver;
 	let postElement: HTMLElement;

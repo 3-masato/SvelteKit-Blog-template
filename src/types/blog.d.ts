@@ -4,7 +4,7 @@ export type BlogTag = Required<MicroCMSListContent> & {
 	name: string;
 };
 
-export type BlogContentRaw = Required<MicroCMSListContent> & {
+export type BlogContent = Required<MicroCMSListContent> & {
 	title: string;
 	body: string;
 	eyecatch: MicroCMSImage | undefined;
@@ -34,13 +34,13 @@ export type TocHeading = {
 
 /* ================ */
 
-export type BlogContent = {
-	raw: BlogContentRaw;
+export type Blog = {
+	raw: BlogContent;
 	date: FormatedDate;
-	id: BlogContentRaw["id"];
-	title: BlogContentRaw["title"];
-	body: BlogContentRaw["body"];
-	eyecatch: BlogContentRaw["eyecatch"];
-	tags: BlogContentRaw["tags"];
+	id: BlogContent["id"];
+	title: BlogContent["title"];
+	body: BlogContent["body"];
+	eyecatch: BlogContent["eyecatch"];
+	tags: BlogContent["tags"];
 	toc: TocHeading[];
 };
