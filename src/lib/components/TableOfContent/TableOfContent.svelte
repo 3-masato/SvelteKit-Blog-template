@@ -10,7 +10,7 @@
 	<div aria-label="Table Of Content">
 		<div class="ml-2 hidden max-w-80 pb-8 pt-2 xl:block">
 			<a
-				class="block w-full rounded-sm px-4 py-2 text-left text-lg font-bold transition-colors duration-100 ease-out hover:bg-gray-600/50"
+				class="block w-full rounded-sm px-4 py-2 text-left text-lg font-bold transition-colors duration-100 ease-out hover:bg-gray-400/50"
 				href={$page.url.pathname}
 			>
 				{"目次"}

@@ -1,6 +1,6 @@
 import type { MicroCMSImage, MicroCMSListContent, MicroCMSListResponse } from "microcms-js-sdk";
 
-export type BlogCategory = Required<MicroCMSListContent> & {
+export type BlogTag = Required<MicroCMSListContent> & {
 	name: string;
 };
 
@@ -8,7 +8,7 @@ export type BlogContentRaw = Required<MicroCMSListContent> & {
 	title: string;
 	body: string;
 	eyecatch: MicroCMSImage | undefined;
-	category: BlogCategory[];
+	tags: BlogTag[];
 };
 
 export type BlogResponse = MicroCMSListResponse<BlogContentRaw>;
@@ -41,6 +41,6 @@ export type BlogContent = {
 	title: BlogContentRaw["title"];
 	body: BlogContentRaw["body"];
 	eyecatch: BlogContentRaw["eyecatch"];
-	category: BlogContentRaw["category"];
+	tags: BlogContentRaw["tags"];
 	toc: TocHeading[];
 };

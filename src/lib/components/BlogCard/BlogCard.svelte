@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Tag from "$components/Tag";
 	import NoImage from "$lib/assets/noimage.webp";
 	import type { BlogContent } from "$types/blog";
 
@@ -20,12 +21,22 @@
 			/>
 		</div>
 
-		<div class="mt-4 grow px-4 sm:mt-0">
+		<div class="mt-4 grow space-y-2 px-4 sm:mt-0">
 			<h3 class="text-xl font-bold">
 				{content.title}
 			</h3>
 
-			<div class="mt-4 flex gap-[0.5rem] text-xs text-gray-500 dark:text-gray-500">
+			<div class="">
+				<ul class="not-prose flex">
+					{#each content.tags as tag}
+						<li class="contents">
+							<Tag {tag} />
+						</li>
+					{/each}
+				</ul>
+			</div>
+
+			<div class="flex gap-[0.5rem] text-xs text-gray-500 dark:text-gray-500">
 				<span
 					>公開日時：<time datetime={content.raw.publishedAt} itemprop="datePublished"
 						>{content.date.publishedDate}</time

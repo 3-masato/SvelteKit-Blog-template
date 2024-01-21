@@ -2,12 +2,13 @@
 	import BlogCard from "$components/BlogCard";
 	import Main from "$components/Main";
 	import type { PageData } from "./$types";
+
 	export let data: PageData;
 </script>
 
 <Main>
 	<h1>ブログ</h1>
-	<div>
+	<div class="flex flex-col gap-2">
 		{#each data.contents as content}
 			<BlogCard {content} />
 		{/each}

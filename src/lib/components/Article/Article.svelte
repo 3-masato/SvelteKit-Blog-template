@@ -1,16 +1,18 @@
 <script lang="ts">
+	import Tag from "$components/Tag";
+	import NoImage from "$lib/assets/noimage.webp";
 	import { tocAttr } from "$lib/util/toc";
 	import { tocStore } from "$stores/toc";
 	import type { BlogContent } from "$types/blog";
 	import { onMount } from "svelte";
 
-	export let data: BlogContent;
+	export let content: BlogContent;
 
 	let observer: IntersectionObserver;
 	let postElement: HTMLElement;
 	let loaded = false;
 
-	$: if (loaded && postElement && data && data.toc) {
+	$: if (loaded && postElement && content && content.toc) {
 		const callback: IntersectionObserverCallback = (entries) => {
 			for (const entry of entries) {
 				const heading = entry.target.getAttribute(tocAttr);
@@ -40,9 +42,19 @@
 </script>
 
 <article>
-	<h1>{data.title}</h1>
-	{#if data.eyecatch}
-		<img src={data.eyecatch.url} alt="blog eyecatch" />
-	{/if}
-	<div bind:this={postElement}>{@html data.body}</div>
+	<img src={content.eyecatch?.url ?? NoImage} alt="blog eyecatch" />
+	<h1>{content.title}</h1>
+	<div>
+		<ul class="not-prose flex">
+			{#each content.tags as tag}
+				<li class="contents">
+					<Tag {tag} />
+				</li>
+			{/each}
+		</ul>
+	</div>
+	<div class="mb-6 mt-4 flex flex-col gap-1 text-sm font-bold text-gray-500">
+		<time>{content.date.publishedDate}</time>
+	</div>
+	<div bind:this={postElement}>{@html content.body}</div>
 </article>

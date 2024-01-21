@@ -30,7 +30,7 @@ export async function parseBlogContent(blog: BlogContentRaw): Promise<BlogConten
 		title: blog.title,
 		body: body,
 		eyecatch: blog.eyecatch,
-		category: blog.category,
+		tags: blog.tags,
 		toc: headingsArray
 	};
 }
