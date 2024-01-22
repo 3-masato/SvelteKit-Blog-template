@@ -10,7 +10,7 @@
 		<p>{"記事が見つかりません"}</p>
 	{:else}
 		{#each blogs as blog}
-			<BlogCard {blog} />
+			<BlogCard {blog} basePath={"blogs"} />
 		{/each}
 	{/if}
 </div>

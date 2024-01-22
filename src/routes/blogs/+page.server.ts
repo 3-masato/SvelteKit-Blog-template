@@ -4,8 +4,7 @@ import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {
 	const list = await getList({
-		orders: "-publishedAt",
-		limit: 4
+		orders: "-publishedAt"
 	});
 	const contents = await Promise.all(list.contents.map(parseBlogContent));
 

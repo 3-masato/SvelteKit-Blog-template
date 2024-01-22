@@ -4,11 +4,14 @@
 	import type { Blog } from "$types/blog";
 
 	export let blog: Blog;
+	export let basePath: string;
+
+	$: path = basePath ? `/${basePath}/${blog.id}` : `/${blog.id}`;
 </script>
 
 <a
 	class="not-prose group flex w-full rounded-sm p-4 transition-colors ease-out hover:bg-gray-200 hover:dark:bg-zinc-700"
-	href={`${blog.id}`}
+	href={path}
 >
 	<div class="h-full w-full sm:flex">
 		<div

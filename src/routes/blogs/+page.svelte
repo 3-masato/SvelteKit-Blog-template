@@ -4,7 +4,7 @@
 	import type { PageData } from "./$types";
 
 	export let data: PageData;
-	const heading = "最近投稿された記事";
+	const heading = "記事一覧";
 </script>
 
 <Main>
