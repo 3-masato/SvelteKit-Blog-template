@@ -1,20 +1,13 @@
 <script lang="ts">
-	import BlogCard from "$components/BlogCard";
+	import ArticleList from "$components/ArticleList";
 	import Main from "$components/Main";
 	import type { PageData } from "./$types";
 
 	export let data: PageData;
+	const heading = `「${data.query}」の検索結果`;
 </script>
 
 <Main>
-	<h1>「{data.query}」の検索結果</h1>
-	<div class="flex flex-col gap-2">
-		{#if data.contents.length === 0}
-			<p>{"記事が見つかりません"}</p>
-		{:else}
-			{#each data.contents as content}
-				<BlogCard {content} />
-			{/each}
-		{/if}
-	</div>
+	<h1>{heading}</h1>
+	<ArticleList blogs={data.contents}></ArticleList>
 </Main>

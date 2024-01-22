@@ -1,14 +1,13 @@
 <script lang="ts">
-	import BlogCard from "$components/BlogCard";
+	import ArticleList from "$components/ArticleList";
 	import Main from "$components/Main";
-	export let data;
+	import type { PageData } from "./$types";
+
+	export let data: PageData;
+	const heading = `タグ「${data.tag.name}」の記事一覧`;
 </script>
 
 <Main>
-	<h1>ブログ</h1>
-	<div class="flex flex-col gap-2">
-		{#each data.contents as content}
-			<BlogCard {content} />
-		{/each}
-	</div>
+	<h1>{heading}</h1>
+	<ArticleList blogs={data.contents}></ArticleList>
 </Main>

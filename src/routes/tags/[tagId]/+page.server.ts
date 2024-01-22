@@ -1,4 +1,4 @@
-import { getList } from "$server/microcms";
+import { getList, getTagDetail } from "$server/microcms";
 import { parseBlogContent } from "$server/util/parse";
 import type { PageServerLoad } from "./$types";
 
@@ -7,10 +7,12 @@ export const load: PageServerLoad = async ({ params }) => {
 		filters: `tags[contains]${params.tagId}`
 	});
 	const contents = await Promise.all(list.contents.map(parseBlogContent));
+	const tag = await getTagDetail(params.tagId);
 
 	return {
 		...list,
-		contents
+		contents,
+		tag
 	};
 };
 
