@@ -19,6 +19,6 @@ export const formatDateInfo = ({
 		updatedDate: formatDate(updatedAt),
 		publishedDate: formatDate(publishedAt),
 		revisedDate: formatDate(revisedAt),
-		isRevised: differenceInSeconds(new Date(publishedAt), new Date(revisedAt)) > 0
+		isRevised: differenceInSeconds(new Date(revisedAt), new Date(publishedAt)) > 0
 	};
 };
