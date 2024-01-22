@@ -1,4 +1,6 @@
 <script lang="ts">
+	import PublishedTime from "$components/PublishedTime";
+	import RevisedTime from "$components/RevisedTime";
 	import Tag from "$components/Tag";
 	import NoImage from "$lib/assets/noimage.webp";
 	import type { Blog } from "$types/blog";
@@ -39,18 +41,14 @@
 				</ul>
 			</div>
 
-			<div class="flex gap-[0.5rem] text-xs text-gray-500 dark:text-gray-500">
-				<span
-					>公開日時：<time datetime={blog.raw.publishedAt} itemprop="datePublished"
-						>{blog.date.publishedDate}</time
-					></span
-				>
+			<div class="flex gap-2">
+				<PublishedTime datetime={blog.raw.publishedAt}>
+					{blog.date.publishedDate}
+				</PublishedTime>
 				{#if blog.date.isRevised}
-					<span
-						>更新日時：<time datetime={blog.raw.revisedAt} itemprop="dateRevised"
-							>{blog.date.revisedDate}</time
-						></span
-					>
+					<RevisedTime datetime={blog.raw.revisedAt}>
+						{blog.date.revisedDate}
+					</RevisedTime>
 				{/if}
 			</div>
 		</div>
