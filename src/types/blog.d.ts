@@ -11,7 +11,9 @@ export type BlogContent = Required<MicroCMSListContent> & {
 	tags: BlogTag[];
 };
 
-export type BlogResponse = MicroCMSListResponse<BlogContentRaw>;
+export type BlogTagResponse = MicroCMSListResponse<BlogTag>;
+
+export type BlogContentResponse = MicroCMSListResponse<BlogContent>;
 
 /* ================ */
 

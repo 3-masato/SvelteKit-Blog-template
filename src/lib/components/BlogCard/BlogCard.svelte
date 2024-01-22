@@ -27,7 +27,7 @@
 			</h3>
 
 			<div class="">
-				<ul class="not-prose flex">
+				<ul class="not-prose flex gap-2">
 					{#each content.tags as tag}
 						<li class="contents">
 							<Tag {tag} />
