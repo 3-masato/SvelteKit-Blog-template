@@ -13,7 +13,7 @@
 </svelte:head>
 
 <Main>
-	<Article content={data}></Article>
+	<Article blog={data}></Article>
 	<svelte:fragment slot="right">
 		<div class="sticky top-20">
 			<TableOfContent toc={data.toc} />
