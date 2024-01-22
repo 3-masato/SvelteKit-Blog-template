@@ -18,8 +18,6 @@
 	<div class="relative grow">
 		<input
 			type="text"
-			id="hs-leading-icon"
-			name="hs-leading-icon"
 			class="h-10 rounded-sm bg-transparent px-4 py-2 ps-11"
 			placeholder="Search"
 			bind:value={searchValue}
