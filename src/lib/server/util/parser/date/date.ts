@@ -1,6 +1,7 @@
-import type { BlogContent, FormatedDate } from "$types/blog";
+import type { FormatedDate } from "$types/blog";
 import { differenceInSeconds, format } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
+import type { MicroCMSDate } from "microcms-js-sdk";
 
 const formatDate = (date: string) => {
 	const utcDate = new Date(date);
@@ -13,7 +14,7 @@ export const formatDateInfo = ({
 	updatedAt,
 	publishedAt,
 	revisedAt
-}: BlogContent): FormatedDate => {
+}: Required<MicroCMSDate>): FormatedDate => {
 	return {
 		createdDate: formatDate(createdAt),
 		updatedDate: formatDate(updatedAt),

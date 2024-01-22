@@ -1,8 +1,8 @@
 <script lang="ts">
 	import BlogCard from "$components/BlogCard";
-	import type { Blog } from "$types/blog";
+	import type { BlogDetails } from "$types/blog";
 
-	export let blogs: Blog[];
+	export let blogs: BlogDetails[];
 </script>
 
 <div class="flex flex-col gap-2">

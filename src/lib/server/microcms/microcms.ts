@@ -1,6 +1,12 @@
 import { MICROCMS_API_KEY, MICROCMS_SERVICE_DOMAIN } from "$env/static/private";
 import { notFound } from "$server/util/routes";
-import type { BlogContent, BlogContentResponse, BlogTag, BlogTagResponse } from "$types/blog";
+import type {
+	BlogContent,
+	BlogContentMap,
+	BlogContentResponse,
+	TagContent,
+	TagContentResponse
+} from "$types/blog";
 import { createClient, type MicroCMSQueries } from "microcms-js-sdk";
 
 const client = createClient({
@@ -15,9 +21,12 @@ export const getList = async (queries?: MicroCMSQueries) => {
 	return await client.get<BlogContentResponse>({ endpoint: blogsEndpoint, queries });
 };
 
-export const getDetail = async (contentId: string, queries?: MicroCMSQueries) => {
+export const getDetail = async <K extends keyof BlogContentMap>(
+	contentId: string,
+	queries?: MicroCMSQueries
+) => {
 	try {
-		return await client.getListDetail<BlogContent>({
+		return await client.getListDetail<BlogContent<K>>({
 			endpoint: blogsEndpoint,
 			contentId,
 			queries
@@ -28,12 +37,12 @@ export const getDetail = async (contentId: string, queries?: MicroCMSQueries) =>
 };
 
 export const getTags = async (queries?: MicroCMSQueries) => {
-	return await client.get<BlogTagResponse>({ endpoint: tagsEndpoint, queries });
+	return await client.get<TagContentResponse>({ endpoint: tagsEndpoint, queries });
 };
 
 export const getTagDetail = async (tagId: string, queries?: MicroCMSQueries) => {
 	try {
-		return await client.getListDetail<BlogTag>({
+		return await client.getListDetail<TagContent>({
 			endpoint: tagsEndpoint,
 			contentId: tagId,
 			queries

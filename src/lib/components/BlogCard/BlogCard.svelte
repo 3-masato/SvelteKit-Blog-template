@@ -3,9 +3,9 @@
 	import RevisedTime from "$components/RevisedTime";
 	import Tag from "$components/Tag";
 	import NoImage from "$lib/assets/noimage.webp";
-	import type { Blog } from "$types/blog";
+	import type { BlogDetails } from "$types/blog";
 
-	export let blog: Blog;
+	export let blog: BlogDetails;
 	export let basePath: string;
 
 	$: path = basePath ? `/${basePath}/${blog.id}` : `/${blog.id}`;

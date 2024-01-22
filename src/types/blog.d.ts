@@ -1,19 +1,26 @@
 import type { MicroCMSImage, MicroCMSListContent, MicroCMSListResponse } from "microcms-js-sdk";
 
-export type BlogTag = Required<MicroCMSListContent> & {
-	name: string;
-};
-
-export type BlogContent = Required<MicroCMSListContent> & {
+export interface BlogContentMap {
 	title: string;
 	body: string;
 	eyecatch: MicroCMSImage | undefined;
-	tags: BlogTag[];
-};
+	tags: TagContent[];
+}
 
-export type BlogTagResponse = MicroCMSListResponse<BlogTag>;
+export interface TagContentMap {
+	name: string;
+}
 
-export type BlogContentResponse = MicroCMSListResponse<BlogContent>;
+export type BlogContent<K extends keyof BlogContentMap> = Required<MicroCMSListContent> &
+	Pick<BlogContentMap, K>;
+
+export type TagContent = Required<MicroCMSListContent> & TagContentMap;
+
+export type BlogDetailsContent = BlogContent<keyof BlogContentMap>;
+
+export type BlogContentResponse = MicroCMSListResponse<BlogDetailsContent>;
+
+export type TagContentResponse = MicroCMSListResponse<TagContent>;
 
 /* ================ */
 
@@ -36,13 +43,10 @@ export type TocHeading = {
 
 /* ================ */
 
-export type Blog = {
-	raw: BlogContent;
-	date: FormatedDate;
-	id: BlogContent["id"];
-	title: BlogContent["title"];
-	body: BlogContent["body"];
-	eyecatch: BlogContent["eyecatch"];
-	tags: BlogContent["tags"];
-	toc: TocHeading[];
-};
+export type BlogDetails = Readonly<
+	{
+		raw: BlogDetailsContent;
+		date: FormatedDate;
+		toc: TocHeading[];
+	} & Pick<BlogDetailsContent, "id" | "title" | "body" | "eyecatch" | "tags">
+>;

@@ -4,10 +4,10 @@
 	import Tag from "$components/Tag";
 	import NoImage from "$lib/assets/noimage.webp";
 	import { observeContent } from "$lib/util/toc";
-	import type { Blog } from "$types/blog";
+	import type { BlogDetails } from "$types/blog";
 	import { onMount } from "svelte";
 
-	export let blog: Blog;
+	export let blog: BlogDetails;
 
 	let postElement: HTMLElement;
 	let loaded = false;

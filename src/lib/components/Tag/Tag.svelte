@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { BlogTag } from "$types/blog";
+	import type { TagContent } from "$types/blog";
 
-	export let tag: BlogTag;
+	export let tag: TagContent;
 </script>
 
 <div class="grid place-items-center">
