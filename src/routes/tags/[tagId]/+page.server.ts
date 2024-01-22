@@ -1,5 +1,5 @@
 import { getList, getTagDetail } from "$server/microcms";
-import { parseBlogContent } from "$server/util/parse";
+import { parseBlogContent } from "$server/util/parser";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params }) => {
