@@ -1,11 +1,12 @@
 import { shikiConfig } from "$config/site";
 import type { CheerioAPI } from "cheerio";
 import { getHighlighter } from "shiki";
+import ShikiLangs from "./shikiLangs";
 
 export const applySyntaxHighlighting = async ($: CheerioAPI) => {
 	const highlighter = await getHighlighter({
 		theme: shikiConfig.theme,
-		langs: shikiConfig.langs
+		langs: shikiConfig.langs ?? ShikiLangs
 	});
 
 	$("pre").each((_, preElement) => {

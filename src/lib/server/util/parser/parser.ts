@@ -1,10 +1,10 @@
-import { getTocHeadings } from "$server/util/toc";
 import type { Blog, BlogContent } from "$types/blog";
 import * as cheerio from "cheerio";
 import { formatDateInfo } from "./date";
 import { applySyntaxHighlighting } from "./highlighter";
+import { getTocHeadings } from "./toc";
 
-export async function parseBlogContent(blog: BlogContent): Promise<Blog> {
+export const parseBlogContent = async (blog: BlogContent): Promise<Blog> => {
 	const $ = cheerio.load(blog.body);
 
 	const body = await applySyntaxHighlighting($);
@@ -22,4 +22,4 @@ export async function parseBlogContent(blog: BlogContent): Promise<Blog> {
 		tags: blog.tags,
 		toc: headingsArray
 	};
-}
+};

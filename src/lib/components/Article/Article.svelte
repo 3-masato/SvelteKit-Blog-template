@@ -1,39 +1,17 @@
 <script lang="ts">
 	import Tag from "$components/Tag";
 	import NoImage from "$lib/assets/noimage.webp";
-	import { tocAttr } from "$lib/util/toc";
-	import { tocStore } from "$stores/toc";
+	import { observeContent } from "$lib/util/toc";
 	import type { Blog } from "$types/blog";
 	import { onMount } from "svelte";
 
 	export let content: Blog;
 
-	let observer: IntersectionObserver;
 	let postElement: HTMLElement;
 	let loaded = false;
 
-	$: if (loaded && postElement && content && content.toc) {
-		const callback: IntersectionObserverCallback = (entries) => {
-			for (const entry of entries) {
-				const heading = entry.target.getAttribute(tocAttr);
-				if (heading) {
-					tocStore[entry.isIntersecting ? "addTOC" : "delTOC"](heading);
-				}
-			}
-		};
-
-		observer = new IntersectionObserver(callback, { threshold: 0.8 });
-
-		// Ensure curHeading is defined outside of the loop
-		let curHeading = "";
-		for (const child of postElement.children) {
-			if (/^h[2-3]/i.test(child.tagName)) {
-				curHeading = `#${child.id}`;
-			}
-
-			child.setAttribute(tocAttr, curHeading);
-			observer.observe(child);
-		}
+	$: if (loaded && postElement) {
+		observeContent(postElement);
 	}
 
 	onMount(() => {

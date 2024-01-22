@@ -7,7 +7,7 @@
 </script>
 
 <Main>
-	<h1>タグ</h1>
+	<h1>{"タグ一覧"}</h1>
 	<ul class="not-prose flex gap-2">
 		{#each data.contents as tag}
 			<li class="contents">
