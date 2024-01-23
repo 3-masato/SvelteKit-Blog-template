@@ -15,13 +15,16 @@ export const observeContent = (postElement: HTMLElement) => {
 	const callback: IntersectionObserverCallback = (entries) => {
 		for (const entry of entries) {
 			const heading = entry.target.getAttribute(tocAttr);
+			console.log(entry.target, entry.intersectionRatio);
 			if (heading) {
 				tocStore[entry.isIntersecting ? "addTOC" : "delTOC"](heading);
 			}
 		}
 	};
 
-	const observer = new IntersectionObserver(callback, { threshold: 0.8 });
+	const observer = new IntersectionObserver(callback, {
+		rootMargin: "-24% 0px -48% 0px"
+	});
 
 	// Ensure curHeading is defined outside of the loop
 	let curHeading = "";

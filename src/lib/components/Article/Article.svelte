@@ -21,8 +21,8 @@
 	});
 </script>
 
-<article>
-	<img src={blog.eyecatch?.url ?? NoImage} alt="blog eyecatch" />
+<article class="mb-48 mt-12">
+	<img class="mt-0" src={blog.eyecatch?.url ?? NoImage} alt="blog eyecatch" />
 	<h1>{blog.title}</h1>
 	<div>
 		<ul class="not-prose flex">
