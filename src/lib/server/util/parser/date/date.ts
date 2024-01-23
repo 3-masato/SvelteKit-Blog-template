@@ -14,12 +14,15 @@ export const formatDateInfo = ({
 	updatedAt,
 	publishedAt,
 	revisedAt
-}: Required<MicroCMSDate>): FormatedDate => {
+}: MicroCMSDate): FormatedDate => {
 	return {
 		createdDate: formatDate(createdAt),
 		updatedDate: formatDate(updatedAt),
-		publishedDate: formatDate(publishedAt),
-		revisedDate: formatDate(revisedAt),
-		isRevised: differenceInSeconds(new Date(revisedAt), new Date(publishedAt)) > 0
+		publishedDate: publishedAt ? formatDate(publishedAt) : "-",
+		revisedDate: revisedAt ? formatDate(revisedAt) : "-",
+		isRevised:
+			publishedAt && revisedAt
+				? differenceInSeconds(new Date(revisedAt), new Date(publishedAt)) > 0
+				: false
 	};
 };

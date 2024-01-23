@@ -34,11 +34,11 @@
 		</ul>
 	</div>
 	<div class="mb-6 mt-4 flex flex-row gap-3">
-		<PublishedTime datetime={blog.raw.publishedAt}>
+		<PublishedTime datetime={blog.raw.publishedAt ?? "-"}>
 			{blog.date.publishedDate}
 		</PublishedTime>
 		{#if blog.date.isRevised}
-			<RevisedTime datetime={blog.raw.revisedAt}>
+			<RevisedTime datetime={blog.raw.revisedAt ?? "-"}>
 				{blog.date.revisedDate}
 			</RevisedTime>
 		{/if}

@@ -11,10 +11,10 @@ export interface TagContentMap {
 	name: string;
 }
 
-export type BlogContent<K extends keyof BlogContentMap> = Required<MicroCMSListContent> &
+export type BlogContent<K extends keyof BlogContentMap> = MicroCMSListContent &
 	Pick<BlogContentMap, K>;
 
-export type TagContent = Required<MicroCMSListContent> & TagContentMap;
+export type TagContent = MicroCMSListContent & TagContentMap;
 
 export type BlogDetailsContent = BlogContent<keyof BlogContentMap>;
 

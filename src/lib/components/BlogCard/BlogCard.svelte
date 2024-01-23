@@ -42,11 +42,11 @@
 			</div>
 
 			<div class="flex gap-2">
-				<PublishedTime datetime={blog.raw.publishedAt}>
+				<PublishedTime datetime={blog.raw.publishedAt ?? "-"}>
 					{blog.date.publishedDate}
 				</PublishedTime>
 				{#if blog.date.isRevised}
-					<RevisedTime datetime={blog.raw.revisedAt}>
+					<RevisedTime datetime={blog.raw.revisedAt ?? "-"}>
 						{blog.date.revisedDate}
 					</RevisedTime>
 				{/if}
