@@ -1,5 +1,6 @@
 <script>
 	import SearchForm from "$components/SearchForm";
+	import ThemeButton from "$components/ThemeButton";
 	import { siteConfig } from "$config/site";
 </script>
 
@@ -19,6 +20,9 @@
 		<div class="ml-auto flex items-center space-x-8 font-semibold">
 			<a href="/blogs">Blogs</a>
 			<a href="/about">About</a>
+		</div>
+		<div class="ml-6 flex items-center border-l border-zinc-200 pl-6 dark:border-zinc-800">
+			<ThemeButton></ThemeButton>
 		</div>
 	</nav>
 </header>

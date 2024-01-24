@@ -15,7 +15,6 @@ export const observeContent = (postElement: HTMLElement) => {
 	const callback: IntersectionObserverCallback = (entries) => {
 		for (const entry of entries) {
 			const heading = entry.target.getAttribute(tocAttr);
-			console.log(entry.target, entry.intersectionRatio);
 			if (heading) {
 				tocStore[entry.isIntersecting ? "addTOC" : "delTOC"](heading);
 			}
