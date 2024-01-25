@@ -1,10 +1,11 @@
-import { cookieName, defaultTheme, isValidTheme } from "$lib/util/theme";
+import { siteConfig } from "$config/site";
+import { cookieName, isValidTheme } from "$lib/util/theme";
 import type { Handle } from "@sveltejs/kit";
 
 const FIVE_MINUTES_IN_SECONDS = 5 * 60;
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const theme = event.cookies.get(cookieName) ?? defaultTheme;
+	const theme = event.cookies.get(cookieName) ?? siteConfig.defaultTheme;
 
 	if (isValidTheme(theme)) {
 		event.locals.theme = theme;

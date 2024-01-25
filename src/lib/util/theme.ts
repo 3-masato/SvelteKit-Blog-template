@@ -1,7 +1,4 @@
-import type { CookieName, DefaultTheme, Theme } from "$types/themes";
-
-/** デフォルトテーマ */
-export const defaultTheme: DefaultTheme = "light";
+import type { CookieName, Theme } from "$types/themes";
 
 /** cookieの名前 */
 export const cookieName: CookieName = "theme";
