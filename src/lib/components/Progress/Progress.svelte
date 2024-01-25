@@ -12,11 +12,7 @@
 
 	$: if (browser) {
 		if ($navigating) {
-			const fromPath = $navigating.from?.url.pathname ?? "";
-			const toPath = $navigating.to?.url.pathname ?? "";
-			if (fromPath !== toPath) {
-				nProgress.start();
-			}
+			nProgress.start();
 		} else {
 			nProgress.done();
 		}
