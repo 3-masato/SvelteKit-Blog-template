@@ -11,7 +11,7 @@
 
 <form
 	method="POST"
-	action="/?/theme"
+	action="/theme?/theme"
 	class="contents"
 	use:enhance={async () => {
 		$theme = nextTheme;
