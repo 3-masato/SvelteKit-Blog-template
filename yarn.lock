@@ -2609,7 +2609,7 @@ svelte-awesome@^3.3.1:
   resolved "https://registry.yarnpkg.com/svelte-awesome/-/svelte-awesome-3.3.1.tgz#b5d5ff8955a5fbddab670cac0f798e17e3c4c06d"
   integrity sha512-nC2KXPs/MQF79vnQEj7RZFkWKdocNfN64Zh/kAWTDS4gFNdCrp7q8dwN3PIxe/mqiaDIUc7x4iv2CtOnVPItcQ==
 
-svelte-check@^3.6.0:
+svelte-check@^3.6.3:
   version "3.6.3"
   resolved "https://registry.yarnpkg.com/svelte-check/-/svelte-check-3.6.3.tgz#416c9a83deb7c2030046824ebee10ab93bbcd394"
   integrity sha512-Q2nGnoysxUnB9KjnjpQLZwdjK62DHyW6nuH/gm2qteFnDk0lCehe/6z8TsIvYeKjC6luKaWxiNGyOcWiLLPSwA==
@@ -2650,7 +2650,7 @@ svelte-preprocess@^5.1.0:
     sorcery "^0.11.0"
     strip-indent "^3.0.0"
 
-svelte@^4.2.7:
+svelte@^4.2.9:
   version "4.2.9"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-4.2.9.tgz#ece982ccc5b700c27e85cdf130c0e343c195fab5"
   integrity sha512-hsoB/WZGEPFXeRRLPhPrbRz67PhP6sqYgvwcAs+gWdSQSvNDw+/lTeUJSWe5h2xC97Fz/8QxAOqItwBzNJPU8w==
