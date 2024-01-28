@@ -7,6 +7,11 @@
 	const heading = `タグ「${data.tag.name}」の記事一覧`;
 </script>
 
+<svelte:head>
+	<title>{heading}</title>
+	<meta name="description" content={heading} />
+</svelte:head>
+
 <Main>
 	<h1>{heading}</h1>
 	<ArticleList blogs={data.contents}></ArticleList>

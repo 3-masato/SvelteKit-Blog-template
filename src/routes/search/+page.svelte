@@ -8,6 +8,11 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>{data.type === "result" ? `「${data.query}」の検索結果` : "サイト内検索"}</title>
+	<meta name="description" content={"サイト内検索"} />
+</svelte:head>
+
 <Main>
 	{#if data.type === "result"}
 		<h1>{`「${data.query}」の検索結果`}</h1>

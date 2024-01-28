@@ -8,8 +8,8 @@
 </script>
 
 <svelte:head>
-	<title>ブログ</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>{data.title}</title>
+	<meta name="description" content={data.title} />
 </svelte:head>
 
 <Main>

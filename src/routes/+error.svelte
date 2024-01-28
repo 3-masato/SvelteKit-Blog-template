@@ -1,7 +1,15 @@
 <script>
 	import { page } from "$app/stores";
 	import Main from "$components/Main";
+
+	$: title = `${$page.status}` + ($page.error?.message ? ` ${$page.error?.message}` : "");
 </script>
+
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content={`${$page.status}`} />
+	<meta name="robots" content="noindex" />
+</svelte:head>
 
 <Main>
 	<div class="text-center">
