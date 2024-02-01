@@ -10,5 +10,3 @@ export const load: PageServerLoad = async ({ params, url: { searchParams } }) =>
 
 	return parseBlogContent(detail);
 };
-
-export const prerender = true;

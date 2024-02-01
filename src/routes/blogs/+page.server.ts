@@ -13,5 +13,3 @@ export const load: PageServerLoad = async () => {
 		contents
 	};
 };
-
-export const prerender = true;
