@@ -29,7 +29,7 @@
 		"@types/node": "^20.11.10",
 		"@types/nprogress": "^0.2.3",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
-		"@typescript-eslint/parser": "^6.19.1",
+		"@typescript-eslint/parser": "^6.20.0",
 		"autoprefixer": "^10.4.16",
 		"cheerio": "^1.0.0-rc.12",
 		"date-fns": "^2.30.0",
